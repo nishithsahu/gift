@@ -23,6 +23,7 @@ body {
   position: absolute;
   max-width: 80vw; /* Ensure paper is responsive */
   max-height: 80vh; /* Ensure paper is responsive */
+  overflow: hidden; /* Ensure content inside the paper does not overflow */
 }
 
 .paper.heart {
@@ -42,11 +43,9 @@ body {
 }
 
 img {
-  max-height: 200px;
-  width: 100%;
-  user-select: none;
   max-width: 100%; /* Ensure images are responsive */
   height: auto; /* Maintain aspect ratio */
+  user-select: none;
 }
 
 .paper.heart::after {
