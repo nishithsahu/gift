@@ -3,6 +3,7 @@
 body {
   height: 100vh;
   display: flex;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
   background-size: 1000px;
