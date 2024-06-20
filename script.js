@@ -17,6 +17,7 @@ class Paper {
 
   init(paper) {
     const updatePosition = (e) => {
+      e.preventDefault();
       const clientX = e.clientX ?? e.touches[0].clientX;
       const clientY = e.clientY ?? e.touches[0].clientY;
 
@@ -54,9 +55,10 @@ class Paper {
     };
 
     document.addEventListener('mousemove', updatePosition);
-    document.addEventListener('touchmove', updatePosition);
+    document.addEventListener('touchmove', updatePosition, { passive: false });
 
     const startInteraction = (e) => {
+      e.preventDefault();
       if (this.holdingPaper) return;
       this.holdingPaper = true;
 
@@ -78,15 +80,16 @@ class Paper {
     };
 
     paper.addEventListener('mousedown', startInteraction);
-    paper.addEventListener('touchstart', startInteraction);
+    paper.addEventListener('touchstart', startInteraction, { passive: false });
 
-    const endInteraction = () => {
+    const endInteraction = (e) => {
+      e.preventDefault();
       this.holdingPaper = false;
       this.rotating = false;
     };
 
     window.addEventListener('mouseup', endInteraction);
-    window.addEventListener('touchend', endInteraction);
+    window.addEventListener('touchend', endInteraction, { passive: false });
   }
 }
 
