@@ -68,12 +68,11 @@ class Paper {
       const clientX = e.clientX ?? e.touches[0].clientX;
       const clientY = e.clientY ?? e.touches[0].clientY;
 
-      if (e.button === 0 || e.touches) {
-        this.mouseTouchX = clientX;
-        this.mouseTouchY = clientY;
-        this.prevMouseX = clientX;
-        this.prevMouseY = clientY;
-      }
+      this.mouseTouchX = clientX;
+      this.mouseTouchY = clientY;
+      this.prevMouseX = clientX;
+      this.prevMouseY = clientY;
+
       if (e.button === 2) {
         this.rotating = true;
       }
